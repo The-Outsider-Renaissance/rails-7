@@ -11,8 +11,17 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_07_14_211359) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bananas", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.integer "count"
+    t.decimal "buy_price"
+    t.decimal "sell_price"
+    t.integer "buy_limit_per_day"
+    t.integer "days_until_ripe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+    ports:
+    - "8080:3000"
+    depends_on:
+    - db
+    volumes:
+    - .:/app
+  db:
+    image: postgres:14.3
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: rails_app
+      POSTGRES_PASSWORD: insecure
+
+volumes:
+  postgres_data:
